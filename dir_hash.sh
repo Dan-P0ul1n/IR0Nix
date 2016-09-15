@@ -30,7 +30,7 @@ touch . >> dir_hashes-${id}.txt
 echo ${bigline} >> dir_hashes-${id}.txt
 
 find $DIR -xdev -type f -exec sha1sum -b {} \; >> dir_hashes-${id}.txt
-
+sed 's/*//' -i dir_hashes-${id}.txt
 echo ${date} >> dir_hashes-${id}.txt
 echo >> dir_hashes-${id}.txt
 
