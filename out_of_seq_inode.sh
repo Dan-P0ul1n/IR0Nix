@@ -10,7 +10,6 @@
 
 #!/bin/bash
 
-
 usage () {
   echo "usage: $0 <path>"
   echo "Simple script to list a directory and print a warning if"
