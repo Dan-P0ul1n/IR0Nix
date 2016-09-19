@@ -11,7 +11,7 @@
 #!/bin/bash
 
 usage () {
-  echo "usage: $0 <path>"
+  echo "usage: $0 <dir>"
   echo "Simple script to list a directory and print a warning if"
   echo "the inodes are out of sequence as will happen if system"
   echo "binaries are overwritten / time-stomped."
@@ -20,8 +20,8 @@ usage () {
 if [ $# -lt 1 ] ; then
 	usage
 fi
-
-read -p " Enter Directory containing Binaries suspected of 'Out-Of_Sequence Inodes/Time-Stomping' " DIR
+$1=DIR
+#read -p " Enter Directory containing Binaries suspected of 'Out-Of_Sequence Inodes/Time-Stomping' " DIR
 #output a listing sorted by inode number to a temp file:
 touch /tmp/temp-ls.txt && chmod 777 /tmp/temp-ls.txt
 templs='/tmp/temp-ls.txt'
