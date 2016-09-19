@@ -14,12 +14,12 @@ bigline="=======================================================================
 smlline="-----------------------------------------------------------------------------------------------------------------"
 host=$(hostname)
 date=$(date +%d-%b-%Y\-%H\:%M\:%S)
-if [ -e \/etc\/machine-id ] ; 
+if [ -e /etc/machine-id ] ; 
 then 
-	id=$(cat \/etc\/machine-id)
-elif [ -e \/var\/lib\/dbus\/machine-id ] ;
+	id=$(cat /etc/machine-id)
+elif [ -e /var/lib/dbus/machine-id ] ;
 then 
-	id=$(cat \/var\/lib\/dbus\/machine-id)
+	id=$(cat /var/lib/dbus/machine-id)
 else 
 	echo "This system has no Unique Machine-ID"
 fi
