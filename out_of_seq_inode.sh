@@ -20,12 +20,11 @@ usage () {
 if [ $# -lt 1 ] ; then
 	usage
 fi
-$1=DIR
-#read -p " Enter Directory containing Binaries suspected of 'Out-Of_Sequence Inodes/Time-Stomping' " DIR
+
 #output a listing sorted by inode number to a temp file:
 touch /tmp/temp-ls.txt && chmod 777 /tmp/temp-ls.txt
 templs='/tmp/temp-ls.txt'
-ls -ali $DIR | sort -n > $templs
+ls -ali $1 | sort -n > $templs
 
 # this is for discarding first couple lines in output
 foundfirstinode=false
@@ -34,7 +33,7 @@ declare -i startinode
 while read line;
 do
 #usually a couple lines of garbage at start of output; this supresses it
-	if ["$foundfirstinode" = false] && [ '\echo $line | wc -w\' -gt 6 ] ;	then
+	if [ "$foundfirstinode" = false ] && [ '\echo $line | wc -w\' > 6 ] ;	then
 		startinode=`expr $(echo $line | awk '{print $1}')`
 		echo "Start inode = $startinode"
 		foundfirstinode=true
