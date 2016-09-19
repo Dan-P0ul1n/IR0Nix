@@ -21,11 +21,11 @@ if [ $# -lt 1 ] ; then
 	usage
 fi
 
-read -p " Enter Directory containing Binaries suspected of 'Out-Of_Sequence Inodes/Time-Stomping' " PATH
+read -p " Enter Directory containing Binaries suspected of 'Out-Of_Sequence Inodes/Time-Stomping' " DIR
 #output a listing sorted by inode number to a temp file:
 touch /tmp/temp-ls.txt && chmod 777 /tmp/temp-ls.txt
 templs='/tmp/temp-ls.txt'
-ls -ali $PATH | sort -n > $templs
+ls -ali $DIR | sort -n > $templs
 
 # this is for discarding first couple lines in output
 foundfirstinode=false
