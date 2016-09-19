@@ -33,7 +33,7 @@ declare -i startinode
 while read line;
 do
 #usually a couple lines of garbage at start of output; this supresses it
-	if [ "$foundfirstinode"=false ] && [ '\echo $line | wc -w\' > 6 ] ;	then
+	if [ "$foundfirstinode" = false ] && [ '\echo $line | wc -w\' > 6 ] ;	then
 		startinode=`expr $(echo $line | awk '{print $1}')`
 		echo "Start inode = $startinode"
 		foundfirstinode=true
