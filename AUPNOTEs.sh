@@ -26,8 +26,8 @@ A=${PS1='${debian_chroot:+($debian_chroot)}\[\e[47m\]\[\033[01;31m\]$HANDLE @ $B
 B=${PS1='${debian_chroot:+($debian_chroot)}\[\033[0;36m\]$HANDLE @ $BOX\[\033[00m\] : \[\033[0;36m\](\D{%d-%b-%Y - %H:%M:%S})\n\w\[\033[00m\]\ $ '}
 
 #what you're using for a handle: HANDLE @ BOX
-C=$(read -p "What would you like your handle to be ?" HANDLE)
-D=$(read -p "What would you like to call this box ?" BOX)
+C=$(read -p " What would you like your handle to be ?  " HANDLE)
+D=$(read -p " What would you like to call this case or system ?  " BOX)
 
 ROOT=$(sed -i -e 's/$Z/$A/g' /root/.bashrc)
 USER=$(sed -i -e 's/$X/$B/g' ~/.bashrc)
