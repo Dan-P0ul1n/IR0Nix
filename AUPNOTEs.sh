@@ -42,6 +42,8 @@ elif [ $id = !0 ] ; then
   $D
   $USER
   X=$(cat ~/.bashrc | grep -A1 '$color_prompt' | grep -v if)
+else
+  exit
 fi
 date=$(date +%d-%b-%Y\-%H\:%M\:%S)
 S=$(script -a /tmp/OPNOTES-${date})
