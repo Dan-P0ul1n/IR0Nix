@@ -1,4 +1,23 @@
+############################################################################################################################
+## [Title]: AUPNOTEs.sh (~ AUtomated oPNOTEs)
+## [Author]: Dan Poulin ( [ßµ∟∟€♱› )
+##--------------------------------------------------------------------------------------------------------------------------
+## [Details]: This script adjusts your PS1 profile for forensic OPNOTES functionality
+##--------------------------------------------------------------------------------------------------------------------------
+## [Modification, Distribution, and Attribution]:
+## You are free to modify and/or distribute this script as you wish.
+############################################################################################################################
+
 #!/bin/bash
+
+usage () {
+  echo "usage: $0 "
+  echo "Script to setup PS1 profile for Forensic/IR functionality"
+  exit 1
+}
+if [ $0 = !true ] ; then
+	usage
+fi
 #IDs current logged on UID and assigns it to 'id'
 id=$(id | cut -d'=' -f2 | cut -d'(' -f1)
 #A=root PS1
@@ -24,4 +43,22 @@ elif [ $id = !0 ] ; then
   $USER
   X=$(cat ~/.bashrc | grep -A1 '$color_prompt' | grep -v if)
 fi
+
+done
+
+S=$(script -a /tmp/OPNOTES-${date})
+R=$(read -p "Would you like to commence OPNOTES now ?   y/n ? " y/n)
+echo $R
+if [ $R = y ] ; then
+  touch /tmp/OPNOTES-${date}.txt && chmod +wr /tmp/OPNOTES-${date}
+  $S
+  echo ""
+  echo " OPNOTES being scribed to the following location:\n  /tmp/OPNOTES-${date}"
+  echo ""
+  echo " CTRL + D to cancel scribe. "
+else
+  echo " Scribe Canceled. "
+  echo ""
+fi
+  echo ""
 
