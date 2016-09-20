@@ -29,10 +29,10 @@ echo "PS1='${debian_chroot:+($debian_chroot)}\[\033[0;36m\]XXX @ OOO\[\033[00m\]
 C=$(read -p " What would you like your handle to be ?  " HANDLE)
 D=$(read -p " What would you like to call this case or system ?  " CASE)
 
-NAME=$(sed -i -e 's/XXX/$HANDLE/g' /tmp/PS1_ROOT.txt)
-NAME=$(sed -i -e 's/XXX/$HANDLE/g' /tmp/PS1_USER.txt)
-BOX=$(sed -i -e 's/OOO/$CASE/g' /tmp/PS1_ROOT.txt)
-BOX=$(sed -i -e 's/OOO/$CASE/g' /tmp/PS1_USER.txt)
+sed -i -e 's/XXX/$HANDLE/g' /tmp/PS1_ROOT.txt
+sed -i -e 's/XXX/$HANDLE/g' /tmp/PS1_USER.txt
+sed -i -e 's/OOO/$CASE/g' /tmp/PS1_ROOT.txt
+sed -i -e 's/OOO/$CASE/g' /tmp/PS1_USER.txt
 
 #A=root PS1
 A=$(cat /tmp/PS1_ROOT.txt)
