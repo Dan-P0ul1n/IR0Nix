@@ -43,14 +43,14 @@ A=$(cat /tmp/PS1_ROOT.txt)
 #B=user PS1
 B=$(cat /tmp/PS1_USER.txt)
 
-if [ $id = "0" ] ; then
+if [ $id = '0' ] ; then
   Z=$(cat /root/.bashrc | grep -A1 '$color_prompt' | grep -v "if")
   ROOT=$(sed -i "s/$Z/$A/" /root/.bashrc)
-  $ROOT
-elif [ $id != "0" ] ; then
+  eval $ROOT
+elif [ $id != '0' ] ; then
   X=$(cat ~/.bashrc | grep -A1 '$color_prompt' | grep -v "if")
   USER1=$(sed -i "s/$X/$B/" ~/.bashrc)
-  $USER1
+  eval $USER1
 else
   echo "turn on system"
 fi
