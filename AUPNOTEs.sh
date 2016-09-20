@@ -44,8 +44,6 @@ elif [ $id = !0 ] ; then
   X=$(cat ~/.bashrc | grep -A1 '$color_prompt' | grep -v if)
 fi
 
-done
-
 S=$(script -a /tmp/OPNOTES-${date})
 R=$(read -p "Would you like to commence OPNOTES now ?   y/n ? " y/n)
 echo $R
@@ -61,4 +59,4 @@ else
   echo ""
 fi
   echo ""
-
+done
