@@ -31,6 +31,7 @@ echo $F
 echo ""
 read -p "What would you like to call this case or system ? " G
 echo $G
+echo ""
 
 sed -i "s/XXX/$F/" /tmp/PS1_ROOT.txt
 sed -i "s/XXX/$F/" /tmp/PS1_USER.txt
@@ -43,11 +44,11 @@ A=$(cat /tmp/PS1_ROOT.txt)
 B=$(cat /tmp/PS1_USER.txt)
 
 if [ $id = "0" ] ; then
-  Z=$(cat /root/.bashrc | grep -A1 '$color_prompt' | grep -v if)
+  Z=$(cat /root/.bashrc | grep -A1 '$color_prompt' | grep -v "if")
   ROOT=$(sed -i "s/$Z/$A/" /root/.bashrc)
   $ROOT
 elif [ $id != "0" ] ; then
-  X=$(cat ~/.bashrc | grep -A1 '$color_prompt' | grep -v if)
+  X=$(cat ~/.bashrc | grep -A1 '$color_prompt' | grep -v "if")
   USER1=$(sed -i "s/$X/$B/" ~/.bashrc)
   $USER1
 else
