@@ -21,7 +21,7 @@ fi
 #IDs current logged on UID and assigns it to 'id'
 id=$(id | cut -d'=' -f2 | cut -d'(' -f1)
 
-touch /tmp/PS1_ROOT.txt /tmp/PS1_USER.txt && chmod +wx PS1_*.txt
+touch /tmp/PS1_ROOT.txt /tmp/PS1_USER.txt && chmod +wx /tmp/PS1_*.txt
 echo "PS1='${debian_chroot:+($debian_chroot)}\[\e[47m\]\[\033[01;31m\]XXX @ OOO\[\033[31m\] : \[\e[47m\]\[\033[01;31m\](\D{%d-%b-%Y - %H:%M:%S})\n\w\[\033[31m\]\ # '}" > PS1_ROOT.txt
 echo "PS1='${debian_chroot:+($debian_chroot)}\[\033[0;36m\]XXX @ OOO\[\033[00m\] : \[\033[0;36m\](\D{%d-%b-%Y - %H:%M:%S})\n\w\[\033[00m\]\ $ '}" > PS1_USER.txt
 
