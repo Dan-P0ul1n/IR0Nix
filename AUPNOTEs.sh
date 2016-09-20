@@ -45,7 +45,7 @@ if [ $id = 0 ] ; then
   Z=$(cat /root/.bashrc | grep -A1 '$color_prompt' | grep -v if)
   ROOT=$(sed -i "s/$Z/$A/" /root/.bashrc)
   $ROOT
-elif [ $id = !0 ] ; then
+elif [ $id != 0 ] ; then
   X=$(cat ~/.bashrc | grep -A1 '$color_prompt' | grep -v if)
   USER=$(sed -i "s/$X/$B/" ~/.bashrc)
   $USER
