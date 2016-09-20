@@ -28,6 +28,7 @@ echo "PS1='${debian_chroot:+($debian_chroot)}\[\033[0;36m\]XXX @ OOO\[\033[00m\]
 #what you're using for a handle: HANDLE @ CASE
 read -p "What would you like your handle to be ? " F
 echo $F
+echo ""
 read -p "What would you like to call this case or system ? " G
 echo $G
 
@@ -47,8 +48,8 @@ if [ $id = "0" ] ; then
   $ROOT
 elif [ $id != "0" ] ; then
   X=$(cat ~/.bashrc | grep -A1 '$color_prompt' | grep -v if)
-  USER=$(sed -i "s/$X/$B/" ~/.bashrc)
-  $USER
+  USER1=$(sed -i "s/$X/$B/" ~/.bashrc)
+  $USER1
 else
   echo "turn on system"
 fi
