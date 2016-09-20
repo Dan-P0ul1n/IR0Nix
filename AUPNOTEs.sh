@@ -41,20 +41,17 @@ A=$(cat /tmp/PS1_ROOT.txt)
 #B=user PS1
 B=$(cat /tmp/PS1_USER.txt)
 
-if [ $id = 0 ] ; then
+if [ $id = "0" ] ; then
   Z=$(cat /root/.bashrc | grep -A1 '$color_prompt' | grep -v if)
   ROOT=$(sed -i "s/$Z/$A/" /root/.bashrc)
   $ROOT
-elif [ $id != 0 ] ; then
+elif [ $id != "0" ] ; then
   X=$(cat ~/.bashrc | grep -A1 '$color_prompt' | grep -v if)
   USER=$(sed -i "s/$X/$B/" ~/.bashrc)
   $USER
 else
   echo "turn on system"
 fi
-
-#ROOT=$(sed -i "s/$Z/$A/" /root/.bashrc)
-#USER=$(sed -i "s/$X/$B/" ~/.bashrc)
 
 date=$(date +%d-%b-%Y\-%H\:%M\:%S)
 S=$(script -a /tmp/OPNOTES-${date}.txt)
