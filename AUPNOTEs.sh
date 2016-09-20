@@ -44,11 +44,11 @@ A=$(cat /tmp/PS1_ROOT.txt)
 B=$(cat /tmp/PS1_USER.txt)
 
 if [ $id = '0' ] ; then
-  Z=$(cat /root/.bashrc | grep -A1 '$color_prompt' | grep -v "if")
+  Z=$(cat /root/.bashrc | grep -A1 '$color_prompt' | grep -v 'if')
   ROOT=$(sed -i "s/$Z/$A/" /root/.bashrc)
   eval $ROOT
 elif [ $id != '0' ] ; then
-  X=$(cat ~/.bashrc | grep -A1 '$color_prompt' | grep -v "if")
+  X=$(cat ~/.bashrc | grep -A1 '$color_prompt' | grep -v 'if')
   USER1=$(sed -i "s/$X/$B/" ~/.bashrc)
   eval $USER1
 else
