@@ -29,18 +29,18 @@ echo "PS1='${debian_chroot:+($debian_chroot)}\[\033[0;36m\]XXX @ OOO\[\033[00m\]
 C=$(read -p " What would you like your handle to be ?  " HANDLE)
 D=$(read -p " What would you like to call this case or system ?  " CASE)
 
-sed -i "s/XXX/$HANDLE/g" /tmp/PS1_ROOT.txt
-sed -i "s/XXX/$HANDLE/g" /tmp/PS1_USER.txt
-sed -i "s/OOO/$CASE/g" /tmp/PS1_ROOT.txt
-sed -i "s/OOO/$CASE/g" /tmp/PS1_USER.txt
+sed "s/XXX/$HANDLE/g" -i /tmp/PS1_ROOT.txt
+sed "s/XXX/$HANDLE/g" -i /tmp/PS1_USER.txt
+sed "s/OOO/$CASE/g" -i /tmp/PS1_ROOT.txt
+sed "s/OOO/$CASE/g" -i /tmp/PS1_USER.txt
 
 #A=root PS1
 A=$(cat /tmp/PS1_ROOT.txt)
 #B=user PS1
 B=$(cat /tmp/PS1_USER.txt)
 
-ROOT=$(sed -i "s/$Z/$A/g" /root/.bashrc)
-USER=$(sed -i "s/$X/$B/g" ~/.bashrc)
+ROOT=$(sed "s/$Z/$A/g" -i /root/.bashrc)
+USER=$(sed "s/$X/$B/g" -i ~/.bashrc)
 
 if [ $id = 0 ] ; then
   $C
