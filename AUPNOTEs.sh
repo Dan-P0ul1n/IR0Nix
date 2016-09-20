@@ -25,16 +25,16 @@ touch /tmp/PS1_ROOT.txt /tmp/PS1_USER.txt && chmod +wx /tmp/PS1_*.txt
 echo "PS1='${debian_chroot:+($debian_chroot)}\[\e[47m\]\[\033[01;31m\]XXX @ OOO\[\033[31m\] : \[\e[47m\]\[\033[01;31m\](\D{%d-%b-%Y - %H:%M:%S})\n\w\[\033[31m\]\ # " >>/tmp/PS1_ROOT.txt
 echo "PS1='${debian_chroot:+($debian_chroot)}\[\033[0;36m\]XXX @ OOO\[\033[00m\] : \[\033[0;36m\](\D{%d-%b-%Y - %H:%M:%S})\n\w\[\033[00m\]\ $ " >>/tmp/PS1_USER.txt
 
-#what you're using for a handle: HANDLE @ BOX
-read -p " What would you like your handle to be ? " HANDLE
-echo $HANDLE
-read -p " What would you like to call this case or system ? " CASE
-echo $CASE
+#what you're using for a handle: HANDLE @ CASE
+read -p "What would you like your handle to be ? " F
+echo $F
+read -p "What would you like to call this case or system ? " G
+echo $G
 
-sed -i "s/XXX/$HANDLE/" /tmp/PS1_ROOT.txt
-sed -i "s/XXX/$HANDLE/" /tmp/PS1_USER.txt
-sed -i "s/OOO/$CASE/" /tmp/PS1_ROOT.txt
-sed -i "s/OOO/$CASE/" /tmp/PS1_USER.txt
+sed -i "s/XXX/$F/" /tmp/PS1_ROOT.txt
+sed -i "s/XXX/$F/" /tmp/PS1_USER.txt
+sed -i "s/OOO/$G/" /tmp/PS1_ROOT.txt
+sed -i "s/OOO/$G/" /tmp/PS1_USER.txt
 
 #A=root PS1
 A=$(cat /tmp/PS1_ROOT.txt)
@@ -50,7 +50,7 @@ elif [ $id = !0 ] ; then
   USER=$(sed -i "s/$X/$B/" ~/.bashrc)
   $USER
 else
-  exit
+  echo "turn on system"
 fi
 
 #ROOT=$(sed -i "s/$Z/$A/" /root/.bashrc)
