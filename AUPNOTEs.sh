@@ -51,7 +51,7 @@ if [ $T = y ] ; then
   touch /tmp/OPNOTES-${date}.txt && chmod +wr /tmp/OPNOTES-${date}
   $S
   echo ""
-  echo " OPNOTES being scribed to the following location:\n  /tmp/OPNOTES-${date}"
+  echo " OPNOTES being scribed to the following location:  /tmp/OPNOTES-${date}"
   echo ""
   echo " CTRL + D to cancel scribe. "
 else
