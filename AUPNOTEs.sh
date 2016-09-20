@@ -45,9 +45,9 @@ elif [ $id = !0 ] ; then
 fi
 
 S=$(script -a /tmp/OPNOTES-${date})
-R=$(read -p "Would you like to commence OPNOTES now ?   y/n ? " y/n)
-echo $R
-if [ $R = y ] ; then
+read -p "Would you like to commence OPNOTES now ?   y/n ? " T
+echo $T
+if [ $T = y ] ; then
   touch /tmp/OPNOTES-${date}.txt && chmod +wr /tmp/OPNOTES-${date}
   $S
   echo ""
