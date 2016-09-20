@@ -20,14 +20,18 @@ if [ $0 = !true ] ; then
 fi
 #IDs current logged on UID and assigns it to 'id'
 id=$(id | cut -d'=' -f2 | cut -d'(' -f1)
+
 #A=root PS1
-A=${PS1='${debian_chroot:+($debian_chroot)}\[\e[47m\]\[\033[01;31m\]$HANDLE @ $BOX\[\033[31m\] : \[\e[47m\]\[\033[01;31m\](\D{%d-%b-%Y - %H:%M:%S})\n\w\[\033[31m\]\ # '}
+A=${   PS1='${debian_chroot:+($debian_chroot)}\[\e[47m\]\[\033[01;31m\]XXX @ OOO\[\033[31m\] : \[\e[47m\]\[\033[01;31m\](\D{%d-%b-%Y - %H:%M:%S})\n\w\[\033[31m\]\ # '}
 #B=user PS1
-B=${PS1='${debian_chroot:+($debian_chroot)}\[\033[0;36m\]$HANDLE @ $BOX\[\033[00m\] : \[\033[0;36m\](\D{%d-%b-%Y - %H:%M:%S})\n\w\[\033[00m\]\ $ '}
+B=${   PS1='${debian_chroot:+($debian_chroot)}\[\033[0;36m\]XXX @ OOO\[\033[00m\] : \[\033[0;36m\](\D{%d-%b-%Y - %H:%M:%S})\n\w\[\033[00m\]\ $ '}
 
 #what you're using for a handle: HANDLE @ BOX
 C=$(read -p " What would you like your handle to be ?  " HANDLE)
-D=$(read -p " What would you like to call this case or system ?  " BOX)
+D=$(read -p " What would you like to call this case or system ?  " CASE)
+
+NAME=$(sed -i -e 's/XXX/$HANDLE/g' $A,$B)
+BOX=$(sed -i -e 's/OOO/$CASE/g' $A,$B)
 
 ROOT=$(sed -i -e 's/$Z/$A/g' /root/.bashrc)
 USER=$(sed -i -e 's/$X/$B/g' ~/.bashrc)
