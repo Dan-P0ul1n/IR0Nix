@@ -10,8 +10,9 @@ D=$(read -p "What would you like to call this box ?" BOX)
 
 
 
-ROOT=$(sed $Z )
-USER=$(sed $X )
+ROOT=$(sed -i -e 's/$Z/$A/g' /root/.bashrc)
+sed -i -e 's/foo/bar/g' filename
+USER=$(sed -i -e 's/$X/$B/g' ~/.bashrc)
 
 if [ $id = 0 ] ; then
   $C
