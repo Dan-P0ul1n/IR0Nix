@@ -46,16 +46,18 @@ else
   exit
 fi
 date=$(date +%d-%b-%Y\-%H\:%M\:%S)
+R=${/tmp/OPNOTES-${date}.txt}
 S=$(script -a /tmp/OPNOTES-${date}.txt)
 read -p "Would you like to commence OPNOTES now ?   y/n ? " T
 echo $T
 if [ $T = y ] ; then
-  touch /tmp/OPNOTES-${date}.txt && chmod +wr /tmp/OPNOTES-${date}.txt
+  touch $R && chmod +wr $R
   $S
   echo ""
-  echo " OPNOTES being scribed to the following location:  /tmp/OPNOTES-${date}.txt"
+  echo " OPNOTES being scribed to the following location:  $R"
   echo ""
   echo " CTRL + D to cancel scribe. "
+  echo ""
 else
   echo " Scribe Canceled. "
   echo ""
