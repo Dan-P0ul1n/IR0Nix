@@ -26,8 +26,8 @@ echo "PS1='${debian_chroot:+($debian_chroot)}\[\e[47m\]\[\033[01;31m\]XXX @ OOO\
 echo "PS1='${debian_chroot:+($debian_chroot)}\[\033[0;36m\]XXX @ OOO\[\033[00m\] : \[\033[0;36m\](\D{%d-%b-%Y - %H:%M:%S})\n\w\[\033[00m\]\ $ " >>/tmp/PS1_USER.txt
 
 #what you're using for a handle: HANDLE @ BOX
-C=$(read -p " What would you like your handle to be ?  "HANDLE)
-D=$(read -p " What would you like to call this case or system ?  "CASE)
+C=$(read -p " What would you like your handle to be ?  " HANDLE)
+D=$(read -p " What would you like to call this case or system ?  " CASE)
 
 NAME=$(sed -i -e 's/XXX/$HANDLE/g' /tmp/PS1_ROOT.txt)
 NAME=$(sed -i -e 's/XXX/$HANDLE/g' /tmp/PS1_USER.txt)
